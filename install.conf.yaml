@@ -1,0 +1,18 @@
+---
+
+- clean: [ '~' ]
+
+- link:
+    # Vim
+    ~/.vim_config: vim_config
+    ~/.vimrc: vimrc
+
+    # Bash
+    ~/.bash_profile: bash_profile
+    ~/.bashrc: bashrc
+    ~/.aliases: aliases
+    ~/.functions: functions
+    ~/.ls_colors: ls_colors
+
+    # Miscellaneous
+    ~/.gitconfig: gitconfig

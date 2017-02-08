@@ -1,0 +1,10 @@
+[user]
+	name = Blake Peterman
+	email = blake@peterman.io
+[core]
+	longpaths = true
+	autocrlf = input
+[credential]
+	helper = cache --timeout=86400
+[color]
+	ui = true
