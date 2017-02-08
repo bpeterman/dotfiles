@@ -4,7 +4,7 @@ alias gsl='git stash list --pretty=format:"%C(red)%h%C(reset) - %C(dim yellow)(%
 alias grepchanged='git diff --name-only | xargs grep'
 alias gs='git status'
 alias ga='git add'
-alias gc='git commit'
+alias gc='git commit -m'
 alias gp='git push'
 alias gd='git diff'
 alias gds='git diff --staged'

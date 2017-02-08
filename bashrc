@@ -24,6 +24,11 @@ export PS1="\[\033[1;36m\]\u\[\033[1;31m\]@\[\033[1;32m\]\h:\[\033[1;35m\]\w\[\0
 if [[ "$platform" == 'mac' ]]; then
     alias ls="command ls -G" 
 fi
+
+if [ -f /etc/lsb-release ]; then
+    alias ls="command ls --color"
+fi
+
 eval $( dircolors -b $HOME/.ls_colors )
 
 source ~/.aliases
