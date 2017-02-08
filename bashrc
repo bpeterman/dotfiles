@@ -25,7 +25,7 @@ if [[ "$platform" == 'mac' ]]; then
     alias ls="command ls -G" 
 fi
 
-if [ -f /etc/lsb-release ]; then
+if [ -f /etc/debian_version ]; then
     alias ls="command ls --color"
 fi
 
