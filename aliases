@@ -10,4 +10,3 @@ alias gd='git diff'
 alias gds='git diff --staged'
 alias ll='ls -lshtr'
 alias grep="grep --color=always"
-

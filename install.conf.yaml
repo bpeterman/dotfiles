@@ -10,8 +10,9 @@
     # Bash
     ~/.bash_profile: bash_profile
     ~/.bashrc: bashrc
+    ~/.viasat_bashrc: viasat_bashrc
     ~/.aliases: aliases
-    ~/.functions: functions
+    ~/.viasat_aliases: viasat_aliases
     ~/.ls_colors: ls_colors
 
     # Miscellaneous

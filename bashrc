@@ -1,5 +1,9 @@
 # .bashrc
 
+include () {
+    [[ -f "$1" ]] && source "$1"
+}
+
 platform='unknown'
 unamestr=`uname`
 if [[ "$unamestr" == 'Darwin' ]]; then
@@ -11,6 +15,8 @@ export PATH
 
 if [[ "$platform" == 'mac' ]]; then
     PATH=$PATH:/usr/local/opt/coreutils/libexec/gnubin
+    PATH=$PATH:/Users/bpeterman/go/bin
+    PATH=$PATH:/Users/bpeterman/.cargo/bin
 fi
 
 # Source global definitions
@@ -31,5 +37,7 @@ fi
 
 eval $( dircolors -b $HOME/.ls_colors )
 
-source ~/.aliases
-
+include  ~/.aliases
+include  ~/.viasat_aliases
+include  ~/.viasat_bashrc
+include ~/.host

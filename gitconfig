@@ -2,9 +2,12 @@
 	name = Blake Peterman
 	email = blake@peterman.io
 [core]
-	longpaths = true
-	autocrlf = input
+    longpaths = true
+    autocrlf = input
+    editor = /usr/bin/vim
 [credential]
-	helper = cache --timeout=86400
+    helper = cache --timeout=86400
 [color]
-	ui = true
+    ui = true
+[merge]
+    tool = vimdiff
