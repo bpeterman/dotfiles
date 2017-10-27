@@ -38,6 +38,4 @@ fi
 eval $( dircolors -b $HOME/.ls_colors )
 
 include  ~/.aliases
-include  ~/.viasat_aliases
-include  ~/.viasat_bashrc
 include ~/.host

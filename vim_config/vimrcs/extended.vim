@@ -1,22 +1,15 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Important: 
-"       This requries that you install https://github.com/amix/vimrc !
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => GUI related
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set font according to system
 if has("mac") || has("macunix")
-    set gfn=Hack:h14,Source\ Code\ Pro:h15,Menlo:h15
+    set gfn=Hack:h12,Source\ Code\ Pro:h15,Menlo:h15
 elseif has("win16") || has("win32")
-    set gfn=Hack:h14,Source\ Code\ Pro:h12,Bitstream\ Vera\ Sans\ Mono:h11
+    set gfn=Hack:h12,Source\ Code\ Pro:h12,Bitstream\ Vera\ Sans\ Mono:h11
 elseif has("gui_gtk2")
-    set gfn=Hack\ 14,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
+    set gfn=Hack\ 12,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
 elseif has("linux")
-    set gfn=Hack\ 14,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
+    set gfn=Hack\ 12,Source\ Code\ Pro\ 12,Bitstream\ Vera\ Sans\ Mono\ 11
 elseif has("unix")
     set gfn=Monospace\ 11
 endif
@@ -28,7 +21,8 @@ set guioptions-=l
 set guioptions-=L
 
 " Colorscheme
-set background=light
+set background=dark
+let g:solarized_termtrans = 1
 colorscheme solarized
 
 
@@ -40,7 +34,7 @@ autocmd! bufwritepost vimrc source ~/.vim_config/my_configs.vim
 
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" => Turn persistent undo on 
+" => Turn persistent undo on
 "    means that you can undo even when you close a buffer/VIM
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 try
@@ -60,7 +54,7 @@ cno $j e ./
 cno $c e <C-\>eCurrentFileDir("e")<cr>
 
 " $q is super useful when browsing on the command line
-" it deletes everything until the last slash 
+" it deletes everything until the last slash
 cno $q <C-\>eDeleteTillSlash()<cr>
 
 " Bash like keys for the command line
@@ -127,7 +121,7 @@ func! DeleteTillSlash()
         else
             let g:cmd_edited = substitute(g:cmd, "\\(.*\[/\]\\).*/", "\\1", "")
         endif
-    endif   
+    endif
 
     return g:cmd_edited
 endfunc

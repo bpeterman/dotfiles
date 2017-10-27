@@ -1,10 +1,3 @@
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Important:
-"       This requries that you install https://github.com/amix/vimrc !
-"
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
 """"""""""""""""""""""""""""""
 " => Load pathogen paths
 """"""""""""""""""""""""""""""
@@ -153,15 +146,18 @@ let g:syntastic_javascript_checkers = ['jshint']
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_go_checkers = ['go', 'golint', 'errcheck']
 
-" Custom CoffeeScript SyntasticCheck
-func! SyntasticCheckCoffeescript()
-    let l:filename = substitute(expand("%:p"), '\(\w\+\)\.coffee', '.coffee.\1.js', '')
-    execute "tabedit " . l:filename
-    execute "SyntasticCheck"
-    execute "Errors"
-endfunc
-nnoremap <silent> <leader>c :call SyntasticCheckCoffeescript()<cr>
+" SyntasticCheck only on command (not file save)
+let g:syntastic_mode_map = {'mode': 'passive'}
+" " don't run on write quit
+" let g:syntastic_check_on_wq = 0
 
+" map leader sc to do a syntax check
+nmap <leader>sc :SyntasticCheck<CR>
+
+" Recommended settings according to Syntastic ReadMe
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Git gutter (Git diff)

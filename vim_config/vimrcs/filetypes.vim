@@ -21,10 +21,12 @@ au FileType python set cindent
 au FileType python set cinkeys-=0#
 au FileType python set indentkeys-=0#
 
+autocmd FileType python set colorcolumn=80
+
 
 """"""""""""""""""""""""""""""
 " => JavaScript section
-"""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 "au FileType javascript call JavaScriptFold()
 au FileType javascript setl fen
 au FileType javascript setl nocindent
@@ -46,10 +48,14 @@ function! JavaScriptFold()
     setl foldtext=FoldText()
 endfunction
 
+autocmd FileType javascript autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd FileType javascript highlight ColorColumn ctermbg=DarkGray
+autocmd FileType javascript set colorcolumn=101
+
 
 """"""""""""""""""""""""""""""
 " => CoffeeScript section
-"""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""
 function! CoffeeScriptFold()
     setl foldmethod=indent
     setl foldlevelstart=1
@@ -65,3 +71,67 @@ au FileType gitcommit call setpos('.', [0, 1, 1, 0])
 if exists('$TMUX') 
     set term=screen-256color 
 endif
+
+
+""""""""""""""""""""""""""""""
+" => TypeScript section
+""""""""""""""""""""""""""""""
+autocmd FileType TypeScript setlocal tabstop=4 expandtab shiftwidth=4 softtabstop=4
+autocmd FileType TypeScript autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd FileType TypeScript set colorcolumn=101
+
+
+""""""""""""""""""""""""""""""
+" => YAML section
+""""""""""""""""""""""""""""""
+autocmd FileType yaml setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+autocmd FileType yaml autocmd BufWritePre <buffer> %s/\s\+$//e
+
+
+""""""""""""""""""""""""""""""
+" => Markdown section
+""""""""""""""""""""""""""""""
+autocmd FileType markdown setlocal tabstop=2 expandtab shiftwidth=2 softtabstop=2
+autocmd FileType markdown autocmd BufWritePre <buffer> %s/\s\+$//e
+
+
+""""""""""""""""""""""""""""""
+" => cpp section
+""""""""""""""""""""""""""""""
+autocmd FileType cpp autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd FileType cpp highlight ColorColumn ctermbg=DarkGray
+autocmd FileType cpp set colorcolumn=101
+
+
+""""""""""""""""""""""""""""""
+" => c section
+""""""""""""""""""""""""""""""
+autocmd FileType c autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd FileType c highlight ColorColumn ctermbg=DarkGray
+autocmd FileType c set colorcolumn=101
+
+
+""""""""""""""""""""""""""""""
+" => java section
+""""""""""""""""""""""""""""""
+autocmd FileType java autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd FileType java highlight ColorColumn ctermbg=DarkGray
+autocmd FileType java set colorcolumn=101
+
+
+""""""""""""""""""""""""""""""
+" => html section
+""""""""""""""""""""""""""""""
+autocmd FileType html autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd FileType html highlight ColorColumn ctermbg=DarkGray
+autocmd FileType html set colorcolumn=101
+
+
+""""""""""""""""""""""""""""""
+" => php section
+""""""""""""""""""""""""""""""
+autocmd FileType php autocmd BufWritePre <buffer> %s/\s\+$//e
+autocmd FileType php highlight ColorColumn ctermbg=DarkGray
+autocmd FileType php set colorcolumn=101
+
+
