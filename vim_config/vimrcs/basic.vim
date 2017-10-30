@@ -129,11 +129,6 @@ if $COLORTERM == 'gnome-terminal'
     set t_Co=256
 endif
 
-try
-    colorscheme desert
-catch
-endtry
-
 set background=dark
 
 " Set extra options when running in GUI mode
@@ -272,16 +267,6 @@ if has("mac") || has("macunix")
   vmap <D-j> <M-j>
   vmap <D-k> <M-k>
 endif
-
-" Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
-autocmd BufWrite *.coffee :call DeleteTrailingWS()
-
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ag searching and cope displaying

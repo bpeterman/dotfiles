@@ -22,6 +22,7 @@ au FileType python set cinkeys-=0#
 au FileType python set indentkeys-=0#
 
 autocmd FileType python set colorcolumn=80
+autocmd FileType python autocmd BufWritePre <buffer> %s/\s\+$//e
 
 
 """"""""""""""""""""""""""""""
@@ -51,18 +52,6 @@ endfunction
 autocmd FileType javascript autocmd BufWritePre <buffer> %s/\s\+$//e
 autocmd FileType javascript highlight ColorColumn ctermbg=DarkGray
 autocmd FileType javascript set colorcolumn=101
-
-
-""""""""""""""""""""""""""""""
-" => CoffeeScript section
-""""""""""""""""""""""""""""""
-function! CoffeeScriptFold()
-    setl foldmethod=indent
-    setl foldlevelstart=1
-endfunction
-au FileType coffee call CoffeeScriptFold()
-
-au FileType gitcommit call setpos('.', [0, 1, 1, 0])
 
 
 """"""""""""""""""""""""""""""
