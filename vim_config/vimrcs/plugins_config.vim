@@ -32,14 +32,18 @@ nmap <c-P> <Plug>yankstack_substitute_newer_paste
 """"""""""""""""""""""""""""""
 " => CTRL-P
 """"""""""""""""""""""""""""""
-let g:ctrlp_working_path_mode = 0
+let g:ctrlp_working_path_mode = 'w'
 
 let g:ctrlp_map = '<c-f>'
+" to search in Files, Buffers and MRU files at the same time.
+" let g:ctrlp_cmd = 'CtrlPMixed'
 map <leader>j :CtrlP<cr>
 map <c-b> :CtrlPBuffer<cr>
 
 let g:ctrlp_max_height = 20
 let g:ctrlp_custom_ignore = 'node_modules\|^\.DS_Store\|^\.git\|^\.coffee'
+" Ignore files in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
 
 """"""""""""""""""""""""""""""
@@ -124,6 +128,8 @@ let g:syntastic_mode_map = {'mode': 'passive'}
 
 " map leader sc to do a syntax check
 nmap <leader>sc :SyntasticCheck<CR>
+" map the opposite of above to close the window
+nmap <leader>cs :SyntasticReset<CR>
 
 " Recommended settings according to Syntastic ReadMe
 set statusline+=%#warningmsg#
@@ -135,3 +141,8 @@ set statusline+=%*
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:gitgutter_enabled=0
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => vim-ripgrep
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>rg :Rg<cr>
